@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Signup</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+<body>
+    <div class="header1">
+        <img src="/images/hero-banner.png" alt="Logo" class="logo">
+        <h1>COVID VACCINATION</h1>
+    </div>
+
+    <figure class="hero-banner">
+        <img src="/images/hero-banner.png" width="570" height="562" alt="corona virus" class="w-100">
+    </figure>
+    <div class="box">
+        <img src="images/user.png" alt="Icon" class="icon">
+        <div class="page">
+            <div class="header">
+                <a id="login" href="/login">login</a>
+                <a id="signup" class="active" href="/signup">signup</a>
+            </div>     
+            <div id="errorMsg">
+                {{#if msg}}
+                    <p>{{msg}}</p>
+                {{/if}}
+            </div>       
+            <!--<div id="errorMsg"></div>-->
+            <div class="content">
+                <form class="signup" name="signupForm" onsubmit="return validateSignupForm()" action="/auth/signup" method="POST">
+                    <input type="email" name="email" id="signEmail" placeholder="Email" required/>
+                    <input type="text" name="name" id="signName" placeholder="Username" required/>
+                    <input type="password" name="password" id="signPassword" placeholder="Password" /required><br>
+                    <input type="submit" value="SignUp">
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="index.js"></script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- ... (your head content) ... -->
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <style>
+        /* style.css */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 100px;
+    margin: 20px auto;
+    overflow: hidden;
+}
+
+.box {
+    background-color: #000;
+    color: #fff;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+}
+
+h2, p {
+    margin: 0;
+}
+
+form {
+    background-color: rgba(0, 0, 0, 0.5); /* Black color with 50% transparency */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width:500px;
+    margin-left: 500px;
+    margin-top: 50px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: #fff; /* Text color for labels */
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+    </style>
+</head>
+<body>
+    <div class="header1">
+        <img src="/images/hero-banner.png" alt="Logo" class="logo">
+        <h1>COVID VACCINATION</h1>
+    </div>
+    <div class="addnewcity">
+        <h1>Add New City</h1>
+    </div>
+
+    <div class="form-container">
+        <form action="/auth/addcity" method="POST">
+            <label for="cityName">City Name:</label>
+            <input type="text" id="cityName" name="cityName" required>
+
+            <!-- Add more form fields if needed -->
+
+            <button type="submit">Add City</button>
+            <a href="/auth/cities" class="back-link">&#8592; Back to Cities</a>
+        </form>
+    </div>
+
+    <!-- ... (rest of your HTML content) ... -->
+
+</body>
+</html>

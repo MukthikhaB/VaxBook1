@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" >
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+    }
+    </style>
+</head>
+<body>
+
+    <div class="header1">
+        <img src="/images/hero-banner.png" alt="Logo" class="logo">
+        <h1>COVID VACCINATION</h1>
+    </div>
+    
+    <h1 class="h1_search">Search by state or City</h1>
+    <div class="search-container">
+        
+        <div class="dropdown">
+            <input type="text" id="searchBar" class="search-bar" oninput="filterStates()" placeholder="Search for a state...">
+            <div class="dropdown-content" id="dropdownContent">
+                <a href="/select" data-state="Tamil Nadu">Tamil Nadu</a>
+                <a href="#" data-state="Kerala">Kerala</a>
+                <a href="#" data-state="Andhra Pradesh">Andhra Pradesh</a>
+                <a href="#" data-state="Karnataka">Karnataka</a>
+            </div>
+        </div>
+        <a id="searchLink" href="#" onclick="redirectToSearch()">
+            <i class="fas fa-search"></i> Search
+        </a>
+    </div>
+
+    <div id="selectedState"></div>
+
+    <script>
+        function filterStates() {
+            var input, filter, dropdown, a, i;
+            input = document.getElementById("searchBar");
+            filter = input.value.toUpperCase();
+            dropdown = document.getElementById("dropdownContent");
+            a = dropdown.getElementsByTagName("a");
+
+            for (i = 0; i < a.length; i++) {
+                if (a[i].innerHTML.toUpperCase().indexOf(filter) > -1) {
+                    a[i].style.display = "";
+                } else {
+                    a[i].style.display = "none";
+                }
+            }
+        }
+
+        function redirectToSearch() {
+            var enteredCity = document.getElementById("searchBar").value.trim();
+
+            if (enteredCity !== "") {
+                // Use AJAX or fetch to check if the city exists in the backend
+                // For simplicity, assuming you have a backend route for this purpose
+                fetch(`/checkCity?city=${encodeURIComponent(enteredCity)}`)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error(`HTTP error! Status: ${response.status}`);
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        if (data.exists) {
+                            // If the city exists, redirect to the /select route
+                            window.location.href = "/select";
+                        } else {
+                            alert("City not found. Redirect to other routes based on your logic");
+                            // If the city is not found, you can customize the URL based on your logic
+                            // window.location.href = "/your-custom-route/" + encodeURIComponent(enteredCity);
+                        }
+                    })
+                    .catch(error => {
+                        console.error("Error:", error);
+                        alert("An error occurred. Please try again.");
+                    });
+            } else {
+                alert("Please enter a city name before searching.");
+            }
+        }
+
+        // Update the search bar with the selected state
+        document.getElementById("dropdownContent").addEventListener("click", function (e) {
+            if (e.target.tagName === "A") {
+                document.getElementById("searchBar").value = e.target.getAttribute("data-state");
+                document.getElementById("selectedState").innerText = "Selected State: " + e.target.getAttribute("data-state");
+            }
+        });
+    </script>
+ <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>Email: info@covidbookings.com</p>
+                <p>Phone: +1 (123) 456-7890</p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <ul class="social-icons">
+                    <li><a href="#" target="_blank">@covid19_facebook  <i class="fab fa-facebook"></i></a></li>
+                    <li><a href="#" target="_blank">tweet_covid19  <i class="fab fa-twitter"></i></a></li>
+                    <li><a href="#" target="_blank">@covid_vist  <i class="fab fa-instagram"></i></a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="copyright">
+            <p>&copy; 2024 COVID Booking Slots. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

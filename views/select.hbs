@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Center</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #8ab2fc;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            overflow: hidden;
+        }
+
+        .row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .city {
+    width: 30%;
+    background-color: #6833fb; /* Blue color for city box */
+    color: #fff; /* Text color for city box */
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+        .city.box{
+            width: 30%;
+            background-color: #6833fb; /* Blue color for city box */
+            color: #fff; /* Text color for city box */
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .box {
+            background-color: #fff; /* White color for center box */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        h3, h4, p {
+            margin: 0;
+        }
+
+        .options {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+
+        .select-center {
+            display: block;
+            padding: 8px 16px;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 4px;
+            cursor: pointer;
+            background-color: #2ecc8a; /* Light green color for select option box */
+            color: #fff; /* Text color for select option box */
+        }
+
+        .header1 {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            background-color: rgba(139, 19, 170, 0.4); 
+        }
+
+        .logo {
+            width: 60px; 
+            height: auto;
+            margin-right: 10px; 
+        }
+
+        h1 {
+            margin: 0;
+            color: #ffffff;
+        }
+
+        .h1_search {
+            margin-left: 680px;
+            margin-top: 20px;
+            margin-bottom: 0px;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <div class="header1">
+        <img src="/images/hero-banner.png" alt="Logo" class="logo">
+        <h1>COVID VACCINATION</h1>
+    </div>
+    <h1 class="h1_search">Select Center</h1>
+
+    {{#each cities}}
+        <div class="container">
+            <div class="city box">
+                <h3>{{name}}</h3>
+            </div>
+            <div class="row">
+                {{#each centers}}
+                    <div class="col">
+                        <div class="box">
+                            <h4>{{name}}</h4>
+                            <p>{{address}}</p>
+                            <a class="select-center" href="/selectcenter/{{this.id}}">Select Center</a>
+                        </div>
+                    </div>
+                {{/each}}
+            </div>
+        </div>
+    {{/each}}
+</body>
+</html>

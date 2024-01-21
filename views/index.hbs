@@ -1,0 +1,54 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home Page</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha384-Ff3Gkakv8uW+xKmXv3oNIKJ9qQoJG/EA3L1ndIxgD5ifwIgOKuRW8RZ+J76zF9zG" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <div class="header1">
+        <img src="/images/hero-banner.png" alt="Logo" class="logo">
+        <h1>COVID VACCINATION</h1>
+    </div>
+
+    <figure class="hero-banner">
+        <img src="/images/hero-banner.png" width="570" height="562" alt="corona virus" class="w-100">
+    </figure>
+
+    <img src="/images/doctor-2.jpg" alt="User Image" class="user-image">
+
+    <div class="box_user">
+
+        <div class="intro">
+            <h3>Please Click Any Of The Below Options</h3>
+            <button id="userButton">USER</button>
+            <button id="adminButton">ADMIN</button>
+          </div>
+
+    </div>
+   <!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQqLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="index.js"></script> -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" 
+    integrity="sha384-3B6NwesSXE7YJlcLI9RpRqGf2p/EgVH8BgoKTaUrmKNDkHPStTQ3EyoYjCGXaOTS" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT" crossorigin="anonymous"></script>
+    
+    <script>
+        document.getElementById("userButton").addEventListener("click", function() {
+            console.log("User button clicked!"); // Check if this log appears in the console
+            window.location.href = "/login"; // Redirect to the login and signup page
+        });
+        document.getElementById("adminButton").addEventListener("click", function() {
+            console.log("Admin button clicked!");
+            window.location.href = "/admin_login"; // Redirect to the admin login page
+        });
+    </script> 
+
+</body>
+</html>
